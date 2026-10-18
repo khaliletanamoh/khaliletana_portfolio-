@@ -1,10 +1,33 @@
 import Image from "next/image";
 import { site } from "@/data/site";
 
+const BLOG = "https://khalilettanamoh.blogspot.com";
 const h2 = "mb-6 text-2xl font-semibold tracking-tight";
 const ext = { target: "_blank", rel: "noopener noreferrer" } as const;
 
-export default function Home() {
+type Post = { title: string; url: string; date: string };
+
+async function getPosts(limit = 3): Promise<Post[]> {
+  try {
+    const res = await fetch(`${BLOG}/feeds/posts/default?alt=json&max-results=${limit}`, {
+      next: { revalidate: 3600 },
+    });
+    if (!res.ok) return [];
+    const data = await res.json();
+    const entries = data?.feed?.entry ?? [];
+    return entries.map((e: any) => ({
+      title: e.title?.$t ?? "Untitled",
+      url: e.link?.find((l: any) => l.rel === "alternate")?.href ?? BLOG,
+      date: (e.published?.$t ?? "").slice(0, 10),
+    }));
+  } catch {
+    return [];
+  }
+}
+
+export default async function Home() {
+  const posts = await getPosts();
+
   return (
     <main className="mx-auto max-w-2xl space-y-20 px-5 py-16 sm:py-24">
       <header>
@@ -54,6 +77,31 @@ export default function Home() {
             </li>
           ))}
         </ul>
+      </section>
+
+      <section>
+        <h2 className={h2}>Latest from the blog</h2>
+        {posts.length > 0 ? (
+          <ul className="space-y-4">
+            {posts.map((p) => (
+              <li key={p.url}>
+                <a href={p.url} {...ext} className="group block">
+                  <h3 className="font-semibold group-hover:text-accent">{p.title}</h3>
+                  {p.date && (
+                    <p className="text-sm text-muted">
+                      {new Date(p.date).toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" })}
+                    </p>
+                  )}
+                </a>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p className="text-muted">
+            Read my notes on engineering and technology on the{" "}
+            <a href={BLOG} {...ext} className="text-accent underline underline-offset-4">blog</a>.
+          </p>
+        )}
       </section>
 
       <section>
