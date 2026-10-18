@@ -9,7 +9,7 @@ export const site = {
     { label: "YouTube", href: "https://youtube.com/@khaliletanatech" },
     { label: "GitHub", href: "https://github.com/khaliletanamoh" },
     { label: "LinkedIn", href: "https://linkedin.com/in/khaliletanamohd" },
-{ label: "Portfolio", href: "https://khaliletanaportfolio.vercel.app" },
+    { label: "Portfolio", href: "https://khaliletanaportfolio.vercel.app" },
   ],
   stack: {
     Web: ["HTML", "CSS", "JavaScript", "Next.js", "Tailwind CSS"],
@@ -18,7 +18,8 @@ export const site = {
   } as Record<string, string[]>,
   projects: [
     { title: "Khalil Engineering Calculator", period: "Personal project", text: "A compact scientific and engineering calculator with matrices, complex numbers, vectors, statistics, calculus, regression, unit conversion and dark/light mode.", tags: ["HTML", "CSS", "JavaScript"], href: "https://github.com/khaliletanamoh/khalil-engineering-calculator" },
-{ title: "Personal Portfolio", period: "Personal project", text: "A responsive portfolio website that shows my skills, projects and links.", tags: ["Next.js", "Tailwind CSS", "Vercel"], href: "https://khaliletanaportfolio.vercel.app" },
+    { title: "Personal Portfolio", period: "Personal project", text: "A responsive portfolio website that shows my skills, projects and links.", tags: ["Next.js", "React", "Tailwind CSS"], href: "https://khaliletanaportfolio.vercel.app" },
+  ],
   experience: [
     { title: "Industrial Engineering student, Wollega University", period: "Shambu Campus", text: "Studying industrial systems and process optimization, and applying them to software and data-driven projects." },
     { title: "Content creator", period: "Ongoing", text: "Shares projects and learning notes on the blog and on the YouTube channel Khalil Etana Voice." },
