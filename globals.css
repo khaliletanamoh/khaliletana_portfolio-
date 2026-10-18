@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+:root { --bg: #eef1f6; --ink: #14213d; --muted: #5b6478; --line: #cfd6e4; --accent: #2a44ff; }
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #0e1424; --ink: #e8ecf8; --muted: #9aa5bf; --line: #26304a; --accent: #8fa2ff; }
+}
+@theme inline {
+  --color-bg: var(--bg); --color-ink: var(--ink); --color-muted: var(--muted);
+  --color-line: var(--line); --color-accent: var(--accent);
+}
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--ink); line-height: 1.65; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }

@@ -1,0 +1,88 @@
+import { site } from "@/data/site";
+
+const h2 = "mb-6 text-2xl font-semibold tracking-tight";
+const ext = { target: "_blank", rel: "noopener noreferrer" } as const;
+
+export default function Home() {
+  return (
+    <main className="mx-auto max-w-2xl space-y-20 px-5 py-16 sm:py-24">
+      <header>
+        <h1 className="text-5xl font-bold tracking-tight sm:text-6xl">Hi, I&apos;m {site.name}.</h1>
+        <p className="mt-2 text-xl text-muted">{site.role}</p>
+        <p className="mt-6 max-w-prose">{site.bio}</p>
+        <nav className="mt-6 flex flex-wrap gap-x-5 gap-y-2" aria-label="Social links">
+          {site.links.map((l) => (
+            <a key={l.href} href={l.href} {...ext} className="underline decoration-line underline-offset-4 hover:text-accent">
+              {l.label}
+            </a>
+          ))}
+        </nav>
+      </header>
+
+      <section>
+        <h2 className={h2}>Stack</h2>
+        <dl className="space-y-3">
+          {Object.entries(site.stack).map(([group, items]) => (
+            <div key={group} className="flex flex-col gap-1 sm:flex-row sm:gap-6">
+              <dt className="w-24 shrink-0 text-muted">{group}</dt>
+              <dd>{items.join(", ")}</dd>
+            </div>
+          ))}
+        </dl>
+      </section>
+
+      <section>
+        <h2 className={h2}>Projects</h2>
+        <ul className="space-y-8">
+          {site.projects.map((p) => (
+            <li key={p.title}>
+              <a href={p.href} {...ext} className="group block">
+                <div className="flex items-baseline justify-between gap-4">
+                  <h3 className="text-lg font-semibold group-hover:text-accent">{p.title}</h3>
+                  <span className="text-sm text-muted">{p.period}</span>
+                </div>
+                <p className="mt-1">{p.text}</p>
+                <p className="mt-1 text-sm text-muted">{p.tags.join(", ")}</p>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <section>
+        <h2 className={h2}>Experience</h2>
+        <ol className="space-y-6 border-l border-line pl-5">
+          {site.experience.map((e) => (
+            <li key={e.title}>
+              <div className="flex items-baseline justify-between gap-4">
+                <h3 className="font-semibold">{e.title}</h3>
+                <span className="text-sm text-muted">{e.period}</span>
+              </div>
+              <p className="mt-1 text-muted">{e.text}</p>
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      <section>
+        <h2 className={h2}>Achievements</h2>
+        <ul className="space-y-4">
+          {site.achievements.map((a) => (
+            <li key={a.title}>
+              <h3 className="font-semibold">{a.title}</h3>
+              <p className="text-muted">{a.text}</p>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <footer className="border-t border-line pt-8">
+        <h2 className={h2}>Want to work together?</h2>
+        <a href={`mailto:${site.email}`} className="text-xl text-accent underline underline-offset-4">
+          {site.email}
+        </a>
+        <p className="mt-10 text-sm text-muted">© {new Date().getFullYear()} {site.name}. Built with Next.js.</p>
+      </footer>
+    </main>
+  );
+}
