@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { site } from "@/data/site";
 
 const h2 = "mb-6 text-2xl font-semibold tracking-tight";
@@ -7,14 +8,16 @@ export default function Home() {
   return (
     <main className="mx-auto max-w-2xl space-y-20 px-5 py-16 sm:py-24">
       <header>
+        {site.photo && (
+          <Image src={site.photo} alt={site.name} width={160} height={160} priority
+            className="mb-6 h-28 w-28 rounded-full border border-line object-cover sm:h-36 sm:w-36" />
+        )}
         <h1 className="text-5xl font-bold tracking-tight sm:text-6xl">Hi, I&apos;m {site.name}.</h1>
         <p className="mt-2 text-xl text-muted">{site.role}</p>
         <p className="mt-6 max-w-prose">{site.bio}</p>
         <nav className="mt-6 flex flex-wrap gap-x-5 gap-y-2" aria-label="Social links">
           {site.links.map((l) => (
-            <a key={l.href} href={l.href} {...ext} className="underline decoration-line underline-offset-4 hover:text-accent">
-              {l.label}
-            </a>
+            <a key={l.href} href={l.href} {...ext} className="underline decoration-line underline-offset-4 hover:text-accent">{l.label}</a>
           ))}
         </nav>
       </header>
@@ -33,10 +36,14 @@ export default function Home() {
 
       <section>
         <h2 className={h2}>Projects</h2>
-        <ul className="space-y-8">
+        <ul className="space-y-10">
           {site.projects.map((p) => (
             <li key={p.title}>
               <a href={p.href} {...ext} className="group block">
+                {p.image && (
+                  <Image src={p.image} alt={`${p.title} screenshot`} width={1200} height={750}
+                    className="mb-4 aspect-[16/10] w-full rounded-md border border-line object-cover object-top" />
+                )}
                 <div className="flex items-baseline justify-between gap-4">
                   <h3 className="text-lg font-semibold group-hover:text-accent">{p.title}</h3>
                   <span className="text-sm text-muted">{p.period}</span>
@@ -78,9 +85,7 @@ export default function Home() {
 
       <footer className="border-t border-line pt-8">
         <h2 className={h2}>Want to work together?</h2>
-        <a href={`mailto:${site.email}`} className="text-xl text-accent underline underline-offset-4">
-          {site.email}
-        </a>
+        <a href={`mailto:${site.email}`} className="text-xl text-accent underline underline-offset-4">{site.email}</a>
         <p className="mt-10 text-sm text-muted">© {new Date().getFullYear()} {site.name}. Built with Next.js.</p>
       </footer>
     </main>
