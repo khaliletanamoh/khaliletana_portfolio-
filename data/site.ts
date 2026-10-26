@@ -4,10 +4,7 @@ export const site = {
 
   role: "Industrial Engineer & full-stack web developer",
 
-  bio: "I'm an Industrial Engineering student at Wollega University (Shambu Campus) in Ethiopia,
-    And a web development enthusiast.
-    I combine engineering thinking with software to build practical, data-driven solutions to real problems.
-  My approach: understand, build, test, improve, share.",
+  bio: "I'm an Industrial Engineering student at Wollega University (Shambu Campus) in Ethiopia, and a web development enthusiast. I combine engineering thinking with software to build practical, data-driven solutions to real problems. My approach: understand, build, test, improve, share.",
 
   email: "khaliletana641@gmail.com",
 
@@ -44,12 +41,14 @@ export const site = {
       "Next.js",
       "Tailwind CSS",
     ],
+
     Tools: [
       "Git",
       "GitHub",
       "Supabase",
       "Vercel",
     ],
+
     Engineering: [
       "Process improvement",
       "Productivity analysis",
@@ -65,6 +64,7 @@ export const site = {
       href: "https://khaliletanaportfolio.vercel.app",
       tags: ["HTML", "CSS", "JavaScript"],
     },
+
     {
       title: "Personal Portfolio",
       text: "A responsive portfolio website that shows my skills, projects and links.",
@@ -81,7 +81,7 @@ export const site = {
     },
     {
       title: "Content creator",
-      text: "Shares projects and learning notes on the blog and on YouTube.",
+      text: "Sharing projects and learning notes on my blog and YouTube channel.",
     },
   ],
 
