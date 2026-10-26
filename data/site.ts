@@ -2,9 +2,12 @@
 export const site = {
   name: "Khalil Etana",
 
-  role: "Industrial Engineering student & full-stack web developer",
+  role: "Industrial Engineer & full-stack web developer",
 
-  bio: "I'm an Industrial Engineering student at Wollega University (Shambu Campus) in Ethiopia, and a web development enthusiast. I combine engineering thinking with software to build practical, data-driven solutions to real problems. My approach: understand, build, test, improve, share.",
+  bio: "I'm an Industrial Engineering student at Wollega University (Shambu Campus) in Ethiopia,
+    And a web development enthusiast.
+    I combine engineering thinking with software to build practical, data-driven solutions to real problems.
+  My approach: understand, build, test, improve, share.",
 
   email: "khaliletana641@gmail.com",
 
@@ -57,7 +60,6 @@ export const site = {
   projects: [
     {
       title: "Khalil Engineering Calculator",
-      period: "Personal project",
       text: "A compact scientific and engineering calculator with matrices, complex numbers, vectors, statistics, calculus, regression, unit conversion and dark/light mode.",
       image: "/calculator.jpg",
       href: "https://khaliletanaportfolio.vercel.app",
@@ -65,7 +67,6 @@ export const site = {
     },
     {
       title: "Personal Portfolio",
-      period: "Personal project",
       text: "A responsive portfolio website that shows my skills, projects and links.",
       image: "/portfolio.jpg",
       href: "https://khaliletanaportfolio.vercel.app",
@@ -75,13 +76,11 @@ export const site = {
 
   experience: [
     {
-      title: "Industrial Engineering student",
-      period: "Shambu Campus",
+      title: "Industrial Engineer",
       text: "Studying industrial systems, productivity, process improvement, and problem solving.",
     },
     {
       title: "Content creator",
-      period: "Ongoing",
       text: "Shares projects and learning notes on the blog and on YouTube.",
     },
   ],
