@@ -2,7 +2,9 @@ import Image from "next/image";
 import { site } from "@/data/site";
 
 const BLOG = "https://khalilettanamoh.blogspot.com";
+
 const h2 = "mb-6 text-2xl font-semibold tracking-tight";
+
 const ext = {
   target: "_blank",
   rel: "noopener noreferrer",
@@ -18,10 +20,14 @@ async function getPosts(limit = 3): Promise<Post[]> {
   try {
     const response = await fetch(
       `${BLOG}/feeds/posts/default?alt=json&max-results=${limit}`,
-      { next: { revalidate: 3600 } }
+      {
+        next: { revalidate: 3600 },
+      }
     );
 
-    if (!response.ok) return [];
+    if (!response.ok) {
+      return [];
+    }
 
     const data = await response.json();
     const entries = data?.feed?.entry ?? [];
@@ -87,7 +93,7 @@ export default async function Home() {
       </header>
 
       {/* Skills and technology stack */}
-      <section>
+      <section id="stack">
         <h2 className={h2}>Stack</h2>
 
         <dl className="space-y-3">
@@ -99,6 +105,7 @@ export default async function Home() {
               <dt className="w-24 shrink-0 text-muted">
                 {group}
               </dt>
+
               <dd>{items.join(", ")}</dd>
             </div>
           ))}
@@ -127,18 +134,13 @@ export default async function Home() {
                   />
                 )}
 
-                <div className="flex items-baseline justify-between gap-4">
-                  <h3 className="text-lg font-semibold group-hover:text-accent">
-                    {project.title}
-                  </h3>
-                  <span className="text-sm text-muted">
-                    {project.period}
-                  </span>
-                </div>
+                <h3 className="text-lg font-semibold group-hover:text-accent">
+                  {project.title}
+                </h3>
 
                 <p className="mt-1">{project.text}</p>
 
-                <p className="mt-1 text-sm text-muted">
+                <p className="mt-2 text-sm text-muted">
                   {project.tags.join(", ")}
                 </p>
               </a>
@@ -170,8 +172,7 @@ export default async function Home() {
 
         <a
           href="https://www.youtube.com/@khaliletanatech"
-          target="_blank"
-          rel="noopener noreferrer"
+          {...ext}
           className="mt-5 inline-block rounded-lg border border-line px-5 py-3 font-medium hover:text-accent"
         >
           Subscribe on YouTube →
@@ -197,14 +198,13 @@ export default async function Home() {
 
                   {post.date && (
                     <p className="text-sm text-muted">
-                      {new Date(post.date).toLocaleDateString(
-                        "en-US",
-                        {
-                          year: "numeric",
-                          month: "short",
-                          day: "numeric",
-                        }
-                      )}
+                      {new Date(
+                        `${post.date}T12:00:00`
+                      ).toLocaleDateString("en-US", {
+                        year: "numeric",
+                        month: "short",
+                        day: "numeric",
+                      })}
                     </p>
                   )}
                 </a>
@@ -232,11 +232,16 @@ export default async function Home() {
         <ol className="space-y-6 border-l border-line pl-5">
           {site.experience.map((item) => (
             <li key={item.title}>
-              <div className="flex items-baseline justify-between gap-4">
-                <h3 className="font-semibold">{item.title}</h3>
-                <span className="text-sm text-muted">
-                  {item.period}
-                </span>
+              <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+                <h3 className="font-semibold">
+                  {item.title}
+                </h3>
+
+                {item.period && (
+                  <span className="text-sm text-muted">
+                    {item.period}
+                  </span>
+                )}
               </div>
 
               <p className="mt-1 text-muted">{item.text}</p>
@@ -252,7 +257,10 @@ export default async function Home() {
         <ul className="space-y-4">
           {site.achievements.map((item) => (
             <li key={item.title}>
-              <h3 className="font-semibold">{item.title}</h3>
+              <h3 className="font-semibold">
+                {item.title}
+              </h3>
+
               <p className="text-muted">{item.text}</p>
             </li>
           ))}
@@ -276,4 +284,4 @@ export default async function Home() {
       </footer>
     </main>
   );
-                  }
+              }
