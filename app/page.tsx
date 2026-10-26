@@ -149,7 +149,7 @@ export default async function Home() {
         </ul>
       </section>
 
-      {/* YouTube latest uploads */}
+      {/* YouTube videos */}
       <section id="youtube">
         <h2 className={h2}>YouTube Videos</h2>
 
@@ -232,19 +232,13 @@ export default async function Home() {
         <ol className="space-y-6 border-l border-line pl-5">
           {site.experience.map((item) => (
             <li key={item.title}>
-              <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-                <h3 className="font-semibold">
-                  {item.title}
-                </h3>
+              <h3 className="font-semibold">
+                {item.title}
+              </h3>
 
-                {item.period && (
-                  <span className="text-sm text-muted">
-                    {item.period}
-                  </span>
-                )}
-              </div>
-
-              <p className="mt-1 text-muted">{item.text}</p>
+              <p className="mt-1 text-muted">
+                {item.text}
+              </p>
             </li>
           ))}
         </ol>
@@ -284,4 +278,4 @@ export default async function Home() {
       </footer>
     </main>
   );
-              }
+}
