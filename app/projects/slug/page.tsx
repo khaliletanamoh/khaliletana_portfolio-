@@ -1,9 +1,10 @@
+
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { site } from "@/data/site";
-import CopyButton from "@/components/CopyButton";
+import CopyButton from "@/app/component/CopyButton";
 
 type Props = {
   params: Promise<{ slug: string }>;
