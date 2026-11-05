@@ -1,3 +1,4 @@
+
 export const site = {
   url: "https://khaliletanamoh.com",
 
@@ -5,7 +6,9 @@ export const site = {
 
   role: "Industrial Engineer & full-stack web developer",
 
-  bio: "I'm an Industrial Engineering student at Wollega University (Shambu Campus) in Ethiopia, and a web development enthusiast. I combine engineering thinking with software to build practical, data-driven solutions to real problems. My approach: understand, build, test, improve, share.",
+  bio: `I'm an Industrial Engineering student at Wollega University (Shambu Campus) in Ethiopia, and a web development enthusiast.
+I combine engineering thinking with software to build practical, data-driven solutions to real problems.
+My approach: understand, build, test, improve, share.`,
 
   email: "khaliletana641@gmail.com",
 
@@ -25,12 +28,12 @@ export const site = {
       href: "https://github.com/khaliletanamoh",
     },
     {
-      label: "LinkedIn",
-      href: "https://www.linkedin.com/in/khaliletanamohd",
+      label: "Facebook",
+      href: "https://www.facebook.com/khaliletanamoh",
     },
     {
       label: "Portfolio",
-      href: "https://khaliletanaportfolio.vercel.app",
+      href: "https://khalil-etana-portfolio-2.vercel.app/",
     },
   ],
 
@@ -62,15 +65,15 @@ export const site = {
       title: "Khalil Engineering Calculator",
       text: "A compact scientific and engineering calculator with matrices, complex numbers, vectors, statistics, calculus, regression, unit conversion and dark/light mode.",
       image: "/calculator.jpg",
-      href: "https://khaliletanaportfolio.vercel.app",
+      href: "https://khaliletanamoh.github.io/khalil-engineering-calculator/",
       tags: ["HTML", "CSS", "JavaScript"],
     },
 
     {
-      title: "Personal Portfolio",
+      title: "Personal Portfolio Website",
       text: "A responsive portfolio website that shows my skills, projects and links.",
       image: "/portfolio.jpg",
-      href: "https://khaliletanaportfolio.vercel.app",
+      href: "https://khalil-etana-portfolio-2.vercel.app/",
       tags: ["Next.js", "React", "Tailwind CSS"],
     },
   ],
