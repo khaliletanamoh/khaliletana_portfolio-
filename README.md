@@ -1,66 +1,97 @@
-# Khalil Etana — SEO implementation package
+👋 Hi, I'm Khalil Etana
 
-Prepared against the public repository structure inspected on 5 Nov 2026:
-`khaliletanamoh/khaliletana_portfolio-` (Next.js 15 App Router).
+<p align="center">
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=24&pause=1000&color=36BCF7&center=true&vCenter=true&width=650&lines=Industrial+Engineer;Full-Stack+Web+Developer;Technology+Enthusiast;Building+Ideas+Into+Reality" alt="Typing SVG" />
+</p><p align="center">
+  <a href="https://github.com/khaliletanamoh">
+    <img src="https://img.shields.io/badge/GitHub-Profile-181717?style=for-the-badge&logo=github" />
+  </a>
+  <a href="mailto:khaliletana641@gmail.com">
+    <img src="https://img.shields.io/badge/Email-Contact-red?style=for-the-badge&logo=gmail&logoColor=white" />
+  </a>
+  <a href="https://www.youtube.com/@khaliletanatech">
+    <img src="https://img.shields.io/badge/YouTube-Channel-FF0000?style=for-the-badge&logo=youtube&logoColor=white" />
+  </a>
+</p>---
 
-## Included
+🚀 About Me
 
-1. **Search-friendly metadata** — descriptive title, concise description, canonical URL, robots directives.
-2. **Structured data** — Person and WebSite JSON-LD in the root layout.
-3. **Sitemap** — `app/sitemap.ts`, including the homepage and project detail pages.
-4. **Robots rules** — `app/robots.ts`, allowing crawling and pointing to the sitemap.
-5. **Individual project pages** — `/projects/khalil-engineering-calculator` and `/projects/personal-portfolio`, with page-specific metadata.
-6. **Social sharing preview** — Open Graph and X/Twitter metadata plus `public/og-image.png`.
-7. **Search Console and launch verification** — checklist below.
+I'm Khalil Etana, an Industrial Engineering student at Wollega University (Shambu Campus), Ethiopia, and a passionate full-stack web developer.
 
-## Install
+I enjoy combining engineering principles with modern technology to build useful, creative, and practical solutions.
 
-Copy the included files into the matching locations in your project:
+- 🎓 Studying Industrial Engineering
+- 💻 Interested in full-stack web development
+- 🌱 Continuously learning and exploring new technologies
+- 🛠️ Building practical projects and digital tools
+- 📍 Based in Ethiopia
 
-- Replace `app/layout.tsx`.
-- Add `app/robots.ts`.
-- Add `app/sitemap.ts`.
-- Add `app/projects/[slug]/page.tsx`.
-- Add `public/og-image.png`.
-- Add `url: "https://khaliletanamoh.com"` near the top of `data/site.ts`.
-- In `app/page.tsx`, change the project-card anchor destination to the internal project route. The exact replacement is in `existing-file-changes.patch`.
+---
 
-The project page slugs are generated from project titles, so the current project titles produce:
-- `/projects/khalil-engineering-calculator`
-- `/projects/personal-portfolio`
+🧰 Tech Stack
 
-## Important checks before deployment
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=html,css,js,ts,nextjs,react,tailwind,git,github,supabase,vercel,vscode" />
+</p>---
 
-- Confirm `https://khaliletanamoh.com` is the preferred canonical host. Configure the other host (`www` or apex) to permanently redirect to it in your domain/Vercel settings.
-- Keep the `site.url` value consistent with that preferred host.
-- The existing project data points both project links to the same Vercel URL. These new pages create separate portfolio detail pages, but they do not invent separate live demo URLs. Add a real, project-specific demo or source-code link to each project if available.
-- The structured data currently describes Wollega University as an educational organization based on the existing public bio. Verify that this wording is accurate before publishing.
-- The social preview image is a generated starter graphic. Replace it with a professional portrait/brand image if you prefer.
+💡 Featured Projects
 
-## Google Search Console
+🧮 Khalil Engineering Calculator
 
-1. Open https://search.google.com/search-console/
-2. Add `https://khaliletanamoh.com/` as a URL-prefix property (or use a Domain property if you can add the required DNS TXT record).
-3. Complete ownership verification. If using the HTML-tag method, add Google's exact verification token to `metadata.verification.google` in `app/layout.tsx`; do not guess the token.
-4. Submit `https://khaliletanamoh.com/sitemap.xml`.
-5. Use URL Inspection on the homepage and each project URL, then request indexing.
-6. Review Page indexing and Core Web Vitals after Google has collected enough data.
+An engineering-focused calculator project designed to support practical calculations and problem-solving.
 
-## Local verification
+🌐 Personal Portfolio
 
-Run:
+A personal portfolio website showcasing my background, skills, projects, and experience.
 
-```bash
-npm install
-npm run build
-npm run dev
-```
+<p align="center">
+  <a href="https://github.com/khaliletanamoh?tab=repositories">
+    <img src="https://img.shields.io/badge/Explore%20My%20Repositories-181717?style=for-the-badge&logo=github" />
+  </a>
+</p>---
 
-Then check:
-- `/robots.txt`
-- `/sitemap.xml`
-- `/projects/khalil-engineering-calculator`
-- `/projects/personal-portfolio`
-- View page source and confirm the canonical URL, Open Graph tags, Twitter card, and JSON-LD are present.
+📊 GitHub Statistics
 
-This package does not deploy changes or connect to Google Search Console. Review the files, adjust any details, then commit and deploy through your normal Vercel workflow.
+<p align="center">
+  <img height="180" src="https://github-readme-stats.vercel.app/api?username=khaliletanamoh&show_icons=true&theme=tokyonight&hide_border=true" alt="GitHub statistics" />
+  <img height="180" src="https://github-readme-stats.vercel.app/api/top-langs/?username=khaliletanamoh&layout=compact&theme=tokyonight&hide_border=true" alt="Top languages" />
+</p><p align="center">
+  <img src="https://streak-stats.demolab.com?user=khaliletanamoh&theme=tokyonight&hide_border=true" alt="GitHub streak" />
+</p>---
+
+🏆 Achievements & Goals
+
+- 🚀 Developing personal and engineering-related software projects
+- 📚 Learning modern web technologies
+- 🌍 Sharing knowledge and technology content
+- 🎯 Working toward becoming a skilled engineer and software developer
+
+---
+
+🎥 Content & Writing
+
+<p>
+  <a href="https://www.youtube.com/@khaliletanatech">
+    <img src="https://img.shields.io/badge/YouTube-Khalil%20Etana%20Tech-FF0000?style=for-the-badge&logo=youtube&logoColor=white" />
+  </a>
+  <a href="https://khalilettanamoh.blogspot.com">
+    <img src="https://img.shields.io/badge/Blogger-Read%20My%20Blog-FF5722?style=for-the-badge&logo=blogger&logoColor=white" />
+  </a>
+</p>---
+
+📫 Connect With Me
+
+- GitHub: "@khaliletanamoh" (https://github.com/khaliletanamoh)
+- Email: "khaliletana641@gmail.com" (mailto:khaliletana641@gmail.com)
+- YouTube: "Khalil Etana Tech" (https://www.youtube.com/@khaliletanatech)
+- Blog: "Khalil's Blog" (https://khalilettanamoh.blogspot.com)
+
+---
+
+<p align="center">
+  <img src="https://komarev.com/ghpvc/?username=khaliletanamoh&label=Profile%20Views&color=0e75b6&style=flat" alt="Profile views" />
+</p><p align="center">
+  <i>"Engineering ideas into reality, one line of code at a time."</i>
+</p><p align="center">
+  ⭐ Thanks for visiting my profile!
+</p>
