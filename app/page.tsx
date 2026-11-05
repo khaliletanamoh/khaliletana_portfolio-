@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { site } from "@/data/site";
+import CopyButton from "@/app/component/CopyButton";
 
 const BLOG = "https://khalilettanamoh.blogspot.com";
 
@@ -117,35 +118,50 @@ export default async function Home() {
         <h2 className={h2}>Projects</h2>
 
         <ul className="space-y-10">
-          {site.projects.map((project) => (
-            <li key={project.title}>
-              <a
-                href={project.href}
-                {...ext}
-                className="group block"
-              >
-                {project.image && (
-                  <Image
-                    src={project.image}
-                    alt={`${project.title} screenshot`}
-                    width={1200}
-                    height={750}
-                    className="mb-4 aspect-[16/10] w-full rounded-md border border-line object-cover object-top"
-                  />
-                )}
+          {site.projects.map((project) => {
+            const copyText = [
+              project.title,
+              project.text,
+              `Technologies: ${project.tags.join(", ")}`,
+              `Project link: ${project.href}`,
+            ].join("\n\n");
 
-                <h3 className="text-lg font-semibold group-hover:text-accent">
-                  {project.title}
-                </h3>
+            return (
+              <li key={project.title}>
+                <div className="group">
+                  <a
+                    href={project.href}
+                    {...ext}
+                    className="block"
+                  >
+                    {project.image && (
+                      <Image
+                        src={project.image}
+                        alt={`${project.title} screenshot`}
+                        width={1200}
+                        height={750}
+                        className="mb-4 aspect-[16/10] w-full rounded-md border border-line object-cover object-top"
+                      />
+                    )}
 
-                <p className="mt-1">{project.text}</p>
+                    <h3 className="text-lg font-semibold group-hover:text-accent">
+                      {project.title}
+                    </h3>
 
-                <p className="mt-2 text-sm text-muted">
-                  {project.tags.join(", ")}
-                </p>
-              </a>
-            </li>
-          ))}
+                    <p className="mt-1">{project.text}</p>
+
+                    <p className="mt-2 text-sm text-muted">
+                      {project.tags.join(", ")}
+                    </p>
+                  </a>
+
+                  <div className="mt-4">
+                    <CopyButton text={copyText} />
+                  </div>
+                </div>
+              </li>
+            );
+          })}
         </ul>
       </section>
 
