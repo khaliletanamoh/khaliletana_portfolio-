@@ -1,5 +1,6 @@
-
 export const site = {
+  url: "https://khaliletanamoh.com",
+
   name: "Khalil Etana",
 
   role: "Industrial Engineer & full-stack web developer",
