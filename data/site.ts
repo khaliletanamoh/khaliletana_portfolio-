@@ -1,98 +1,37 @@
-
-export const site = {
-  url: "https://khaliletanamoh.com",
-
-  name: "Khalil Etana",
-
-  role: "Industrial Engineer & full-stack web developer",
-
-  bio: `I'm an Industrial Engineering student at Wollega University (Shambu Campus) in Ethiopia, and a web development enthusiast.
-I combine engineering thinking with software to build practical, data-driven solutions to real problems.
-My approach: understand, build, test, improve, share.`,
-
-  email: "khaliletana641@gmail.com",
-
-  photo: "/photo.jpg",
-
-  links: [
-    {
-      label: "Blog",
-      href: "https://khalilettanamoh.blogspot.com",
-    },
-    {
-      label: "YouTube",
-      href: "https://youtube.com/@khaliletanatech",
-    },
-    {
-      label: "GitHub",
-      href: "https://github.com/khaliletanamoh",
-    },
-    {
-      label: "Facebook",
-      href: "https://www.facebook.com/khaliletanamoh",
-    },
-    {
-      label: "Portfolio",
-      href: "https://khalil-etana-portfolio-2.vercel.app/",
-    },
-  ],
-
-  stack: {
-    Web: [
-      "HTML",
-      "CSS",
-      "JavaScript",
-      "Next.js",
-      "Tailwind CSS",
-    ],
-
-    Tools: [
-      "Git",
-      "GitHub",
-      "Supabase",
-      "Vercel",
-    ],
-
-    Engineering: [
-      "Process improvement",
-      "Productivity analysis",
-      "Problem solving",
-    ],
-  } as Record<string, string[]>,
-
-  projects: [
-    {
-      title: "Khalil Engineering Calculator",
-      text: "A compact scientific and engineering calculator with matrices, complex numbers, vectors, statistics, calculus, regression, unit conversion and dark/light mode.",
-      image: "/calculator.jpg",
-      href: "https://khaliletanamoh.github.io/khalil-engineering-calculator/",
-      tags: ["HTML", "CSS", "JavaScript"],
-    },
-
-    {
-      title: "Personal Portfolio Website",
-      text: "A responsive portfolio website that shows my skills, projects and links.",
-      image: "/portfolio.jpg",
-      href: "https://khalil-etana-portfolio-2.vercel.app/",
-      tags: ["Next.js", "React", "Tailwind CSS"],
-    },
-  ],
-
-  experience: [
-    {
-      title: "Industrial Engineer",
-      text: "Studying industrial systems, productivity, process improvement, and problem solving.",
-    },
-    {
-      title: "Content creator",
-      text: "Sharing projects and learning notes on my blog and YouTube channel.",
-    },
-  ],
-
-  achievements: [
-    {
-      title: "ORCID researcher profile",
-      text: "Registered ORCID iD 0009-0005-5740-7324 for academic work.",
-    },
-  ],
-};
+projects: [
+  {
+    title: "CV Maker",
+    text: "A professional CV maker that helps users create and customize resumes.",
+    image: "/images/project-cv-maker.jpg",
+    href: "https://khalilcvmaker.vercel.app/",
+    tags: ["Next.js", "React", "Tailwind CSS"],
+  },
+  {
+    title: "Khalil Etana Digital",
+    text: "A digital project showcasing practical web development and technology solutions.",
+    image: "/images/project-digital.jpg",
+    href: "https://github.com/khaliletanamoh/khalil-etana-digital",
+    tags: ["Web Development", "JavaScript"],
+  },
+  {
+    title: "Khalil Engineering Calculator",
+    text: "A scientific and engineering calculator with matrices, complex numbers, vectors, statistics, calculus, regression, and unit conversion.",
+    image: "/images/project-engineering-calculator.jpg",
+    href: "https://github.com/khaliletanamoh/khalil-engineering-calculator",
+    tags: ["HTML", "CSS", "JavaScript"],
+  },
+  {
+    title: "Restaurant App",
+    text: "A restaurant application project showcasing web development and user interface design.",
+    image: "/images/project-restaurant.jpg",
+    href: "https://github.com/khaliletanamoh/Restaurant-app",
+    tags: ["Web Development", "JavaScript"],
+  },
+  {
+    title: "Personal Portfolio Website",
+    text: "A professional, responsive portfolio showcasing my background, skills, projects, and experience as an Industrial Engineer and Full-Stack Web Developer.",
+    image: "/images/portfolio.jpg",
+    href: "https://khalil-etana-portfolio-2.vercel.app/",
+    tags: ["Next.js", "React", "Tailwind CSS"],
+  },
+],
