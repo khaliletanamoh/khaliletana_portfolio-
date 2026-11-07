@@ -1,6 +1,6 @@
 
 import { ArrowUpRight, ExternalLink, Github } from "lucide-react";
-import { portfolioData } from "@/data/portfolio";
+import { site } from "@/data/site";
 
 export default function Projects() {
   return (
@@ -11,7 +11,9 @@ export default function Projects() {
 
           <h2 className="heading">
             Projects built through
-            <span className="gradient-text"> curiosity and practice.</span>
+            <span className="gradient-text">
+              {" "}curiosity and practice.
+            </span>
           </h2>
 
           <p className="section-description">
@@ -22,26 +24,29 @@ export default function Projects() {
         </div>
 
         <div className="grid gap-7 md:grid-cols-2">
-          {portfolioData.projects.map((project) => {
-            const isGitHub = project.link.includes("github.com");
+          {site.projects.map((project, index) => {
+            const isGitHub = project.href.includes("github.com");
 
             return (
               <article
-                key={project.number}
+                key={project.title}
                 className="card group overflow-hidden p-0"
               >
-                <div className="relative flex min-h-[230px] items-center justify-center overflow-hidden border-b border-white/10 bg-gradient-to-br from-[#17243a] via-[#101a2b] to-[#0b101a]">
-                  <div className="absolute -right-16 -top-16 h-64 w-64 rounded-full bg-blue-500/10 blur-3xl" />
+                {/* Project image */}
+                <div className="relative h-[250px] overflow-hidden border-b border-white/10 bg-[#101a2b]">
+                  <img
+                    src={project.image}
+                    alt={`${project.title} preview`}
+                    className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                    loading="lazy"
+                  />
 
-                  <span className="relative font-[var(--font-space)] text-8xl font-bold tracking-tighter text-white/10 transition duration-500 group-hover:scale-110">
-                    {project.number}
-                  </span>
-
-                  <span className="absolute bottom-5 left-6 text-xs font-semibold uppercase tracking-widest text-teal-400">
-                    {project.category}
+                  <span className="absolute left-5 top-5 rounded-full border border-white/20 bg-black/60 px-3 py-1 text-xs font-semibold text-white backdrop-blur">
+                    PROJECT 0{index + 1}
                   </span>
                 </div>
 
+                {/* Project details */}
                 <div className="p-7">
                   <div className="flex items-start justify-between gap-4">
                     <h3 className="text-xl font-bold">
@@ -62,12 +67,12 @@ export default function Projects() {
                   </div>
 
                   <p className="mt-4 text-sm leading-7 text-gray-400">
-                    {project.description}
+                    {project.text}
                   </p>
 
-                  {project.technologies.length > 0 && (
+                  {project.tags.length > 0 && (
                     <div className="mt-5 flex flex-wrap gap-2">
-                      {project.technologies.map((technology) => (
+                      {project.tags.map((technology) => (
                         <span
                           key={technology}
                           className="rounded-full border border-white/10 px-3 py-1 text-xs text-gray-400"
@@ -79,12 +84,14 @@ export default function Projects() {
                   )}
 
                   <a
-                    href={project.link}
+                    href={project.href}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="mt-7 inline-flex items-center gap-2 text-sm font-semibold text-teal-400 transition hover:gap-3"
                   >
-                    {isGitHub ? "View Repository" : "Visit Live Project"}
+                    {isGitHub
+                      ? "View Repository"
+                      : "Visit Project"}
                     <ArrowUpRight size={17} />
                   </a>
                 </div>
