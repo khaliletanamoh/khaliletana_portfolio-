@@ -1,6 +1,14 @@
 
 import { ArrowUpRight, ExternalLink, Github } from "lucide-react";
+import Link from "next/link";
 import { site } from "@/data/site";
+
+const slugify = (value: string) =>
+  value
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
 
 export default function Projects() {
   return (
@@ -26,6 +34,7 @@ export default function Projects() {
         <div className="grid gap-7 md:grid-cols-2">
           {site.projects.map((project, index) => {
             const isGitHub = project.href.includes("github.com");
+            const detailLink = `/product/${slugify(project.title)}`;
 
             return (
               <article
@@ -83,17 +92,28 @@ export default function Projects() {
                     </div>
                   )}
 
-                  <a
-                    href={project.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-7 inline-flex items-center gap-2 text-sm font-semibold text-teal-400 transition hover:gap-3"
-                  >
-                    {isGitHub
-                      ? "View Repository"
-                      : "Visit Project"}
-                    <ArrowUpRight size={17} />
-                  </a>
+                  {/* Project actions */}
+                  <div className="mt-7 flex flex-wrap items-center gap-5">
+                    <Link
+                      href={detailLink}
+                      className="inline-flex items-center gap-2 text-sm font-semibold text-teal-400 transition hover:gap-3"
+                    >
+                      View Details
+                      <ArrowUpRight size={17} />
+                    </Link>
+
+                    <a
+                      href={project.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-sm font-semibold text-teal-400 transition hover:gap-3"
+                    >
+                      {isGitHub
+                        ? "View Repository"
+                        : "Visit Project"}
+                      <ExternalLink size={17} />
+                    </a>
+                  </div>
                 </div>
               </article>
             );
