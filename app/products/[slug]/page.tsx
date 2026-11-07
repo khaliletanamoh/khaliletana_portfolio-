@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
+import { ArrowLeft, ArrowUpRight, Github, ExternalLink } from "lucide-react";
 import { site } from "@/data/site";
 import CopyButton from "@/app/component/CopyButton";
 
@@ -38,17 +39,19 @@ export async function generateMetadata({
     };
   }
 
+  const pageUrl = `https://khaliletanamoh.com/product/${slug}`;
+
   return {
     title: `${project.title} | Khalil Etana`,
     description: project.text,
     alternates: {
-      canonical: `/product/${slug}`,
+      canonical: pageUrl,
     },
     openGraph: {
       type: "article",
       title: `${project.title} | Khalil Etana`,
       description: project.text,
-      url: `https://khaliletanamoh.com/product/${slug}`,
+      url: pageUrl,
       images: project.image
         ? [project.image]
         : ["/og-image.png"],
@@ -56,9 +59,7 @@ export async function generateMetadata({
   };
 }
 
-export default async function ProjectPage({
-  params,
-}: Props) {
+export default async function ProjectPage({ params }: Props) {
   const { slug } = await params;
 
   const project = site.projects.find(
@@ -79,96 +80,111 @@ export default async function ProjectPage({
   ].join("\n\n");
 
   return (
-    <main className="mx-auto max-w-3xl space-y-8 px-5 py-16 sm:py-24">
+    <main className="min-h-screen px-5 py-16 sm:py-24">
+      <div className="mx-auto max-w-3xl space-y-10">
 
-      {/* Back navigation */}
-      <Link
-        href="/#projects"
-        className="inline-flex items-center text-sm underline underline-offset-4 transition hover:text-accent"
-      >
-        ← Back to Projects
-      </Link>
-
-      {/* Project content */}
-      <article>
-        <div className="flex flex-wrap items-start justify-between gap-4">
-          <div>
-            <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-teal-400">
-              PROJECT DETAILS
-            </p>
-
-            <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
-              {project.title}
-            </h1>
-          </div>
-
-          <CopyButton text={copyText} />
-        </div>
-
-        <p className="mt-5 text-lg leading-8 text-muted">
-          {project.text}
-        </p>
-
-        {/* Project image */}
-        {project.image && (
-          <div className="mt-8 overflow-hidden rounded-xl border border-line">
-            <Image
-              src={project.image}
-              alt={`${project.title} project preview`}
-              width={1200}
-              height={750}
-              priority
-              className="aspect-[16/10] w-full object-cover object-top"
-            />
-          </div>
-        )}
-
-        {/* Technologies */}
-        <section className="mt-10">
-          <h2 className="text-xl font-semibold">
-            Technologies Used
-          </h2>
-
-          <div className="mt-4 flex flex-wrap gap-3">
-            {project.tags.map((tag) => (
-              <span
-                key={tag}
-                className="rounded-full border border-line px-4 py-2 text-sm text-muted"
-              >
-                {tag}
-              </span>
-            ))}
-          </div>
-        </section>
-
-        {/* External project link */}
-        <section className="mt-10">
-          <h2 className="text-xl font-semibold">
-            Explore This Project
-          </h2>
-
-          <a
-            href={project.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-5 inline-flex items-center gap-2 rounded-lg bg-teal-500 px-6 py-3 font-semibold text-white transition hover:bg-teal-600"
-          >
-            {isGitHub ? "View GitHub Repository" : "Visit Live Project"}
-            <span aria-hidden="true">↗</span>
-          </a>
-        </section>
-      </article>
-
-      {/* Footer navigation */}
-      <div className="border-t border-line pt-8">
+        {/* Back navigation */}
         <Link
           href="/#projects"
-          className="text-sm font-semibold text-teal-400 transition hover:underline"
+          className="inline-flex items-center gap-2 text-sm text-muted transition hover:text-teal-400"
         >
-          ← Explore More Projects
+          <ArrowLeft size={17} />
+          Back to Projects
         </Link>
-      </div>
 
+        {/* Project details */}
+        <article>
+          <div className="flex flex-wrap items-start justify-between gap-4">
+            <div>
+              <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-teal-400">
+                Project Details
+              </p>
+
+              <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
+                {project.title}
+              </h1>
+            </div>
+
+            <CopyButton text={copyText} />
+          </div>
+
+          <p className="mt-5 text-lg leading-8 text-muted">
+            {project.text}
+          </p>
+
+          {/* Project image */}
+          {project.image && (
+            <div className="relative mt-8 aspect-[16/10] overflow-hidden rounded-xl border border-line">
+              <Image
+                src={project.image}
+                alt={`${project.title} project preview`}
+                fill
+                priority
+                sizes="(max-width: 768px) 100vw, 768px"
+                className="object-cover object-top"
+              />
+            </div>
+          )}
+
+          {/* Technologies */}
+          <section className="mt-10">
+            <h2 className="text-xl font-semibold">
+              Technologies Used
+            </h2>
+
+            <div className="mt-4 flex flex-wrap gap-3">
+              {project.tags.map((tag) => (
+                <span
+                  key={tag}
+                  className="rounded-full border border-line px-4 py-2 text-sm text-muted"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </section>
+
+          {/* External project link */}
+          <section className="mt-10">
+            <h2 className="text-xl font-semibold">
+              Explore This Project
+            </h2>
+
+            <a
+              href={project.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-5 inline-flex items-center gap-2 rounded-lg bg-teal-500 px-6 py-3 font-semibold text-white transition hover:bg-teal-600"
+            >
+              {isGitHub ? (
+                <>
+                  <Github size={18} />
+                  View GitHub Repository
+                </>
+              ) : (
+                <>
+                  <ExternalLink size={18} />
+                  Visit Live Project
+                </>
+              )}
+
+              <ArrowUpRight size={17} />
+            </a>
+          </section>
+        </article>
+
+        {/* Footer navigation */}
+        <div className="border-t border-line pt-8">
+          <Link
+            href="/#projects"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-teal-400 transition hover:underline"
+          >
+            <ArrowLeft size={16} />
+            Explore More Projects
+          </Link>
+        </div>
+
+      </div>
     </main>
   );
 }
