@@ -1,4 +1,5 @@
-projects: [
+export const site = {
+  projects: [
   {
     title: "CV Maker",
     text: "A professional CV maker that helps users create and customize resumes.",
@@ -34,4 +35,5 @@ projects: [
     href: "https://khalil-etana-portfolio-2.vercel.app/",
     tags: ["Next.js", "React", "Tailwind CSS"],
   },
-],
+  ],
+};

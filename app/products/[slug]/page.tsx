@@ -5,7 +5,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { ArrowLeft, ArrowUpRight, Github, ExternalLink } from "lucide-react";
 import { site } from "@/data/site";
-import CopyButton from "@/app/component/CopyButton";
+import CopyButton from "@/components/CopyButton";
 
 type Props = {
   params: Promise<{ slug: string }>;
