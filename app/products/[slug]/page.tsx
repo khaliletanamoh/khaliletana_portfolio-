@@ -33,19 +33,22 @@ export async function generateMetadata({
   );
 
   if (!project) {
-    return { title: "Project not found" };
+    return {
+      title: "Project Not Found | Khalil Etana",
+    };
   }
 
   return {
-    title: project.title,
+    title: `${project.title} | Khalil Etana`,
     description: project.text,
     alternates: {
-      canonical: `/projects/${slug}`,
+      canonical: `/product/${slug}`,
     },
     openGraph: {
       type: "article",
       title: `${project.title} | Khalil Etana`,
       description: project.text,
+      url: `https://khaliletanamoh.com/product/${slug}`,
       images: project.image
         ? [project.image]
         : ["/og-image.png"],
@@ -62,55 +65,110 @@ export default async function ProjectPage({
     (item) => slugify(item.title) === slug
   );
 
-  if (!project) notFound();
+  if (!project) {
+    notFound();
+  }
+
+  const isGitHub = project.href.includes("github.com");
 
   const copyText = [
     project.title,
     project.text,
     `Technologies: ${project.tags.join(", ")}`,
+    `Project link: ${project.href}`,
   ].join("\n\n");
 
   return (
-    <main className="mx-auto max-w-2xl space-y-8 px-5 py-16 sm:py-24">
+    <main className="mx-auto max-w-3xl space-y-8 px-5 py-16 sm:py-24">
+
+      {/* Back navigation */}
       <Link
-        href="/"
-        className="text-sm underline decoration-line underline-offset-4 hover:text-accent"
+        href="/#projects"
+        className="inline-flex items-center text-sm underline underline-offset-4 transition hover:text-accent"
       >
-        ← Back to portfolio
+        ← Back to Projects
       </Link>
 
+      {/* Project content */}
       <article>
         <div className="flex flex-wrap items-start justify-between gap-4">
-          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
-            {project.title}
-          </h1>
+          <div>
+            <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-teal-400">
+              PROJECT DETAILS
+            </p>
+
+            <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
+              {project.title}
+            </h1>
+          </div>
 
           <CopyButton text={copyText} />
         </div>
 
-        <p className="mt-4 text-lg text-muted">
+        <p className="mt-5 text-lg leading-8 text-muted">
           {project.text}
         </p>
 
+        {/* Project image */}
         {project.image && (
-          <Image
-            src={project.image}
-            alt={`${project.title} project screenshot`}
-            width={1200}
-            height={750}
-            priority
-            className="mt-8 aspect-[16/10] w-full rounded-md border border-line object-cover object-top"
-          />
+          <div className="mt-8 overflow-hidden rounded-xl border border-line">
+            <Image
+              src={project.image}
+              alt={`${project.title} project preview`}
+              width={1200}
+              height={750}
+              priority
+              className="aspect-[16/10] w-full object-cover object-top"
+            />
+          </div>
         )}
 
-        <h2 className="mt-8 text-xl font-semibold">
-          Technologies
-        </h2>
+        {/* Technologies */}
+        <section className="mt-10">
+          <h2 className="text-xl font-semibold">
+            Technologies Used
+          </h2>
 
-        <p className="mt-2 text-muted">
-          {project.tags.join(", ")}
-        </p>
+          <div className="mt-4 flex flex-wrap gap-3">
+            {project.tags.map((tag) => (
+              <span
+                key={tag}
+                className="rounded-full border border-line px-4 py-2 text-sm text-muted"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+        </section>
+
+        {/* External project link */}
+        <section className="mt-10">
+          <h2 className="text-xl font-semibold">
+            Explore This Project
+          </h2>
+
+          <a
+            href={project.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-5 inline-flex items-center gap-2 rounded-lg bg-teal-500 px-6 py-3 font-semibold text-white transition hover:bg-teal-600"
+          >
+            {isGitHub ? "View GitHub Repository" : "Visit Live Project"}
+            <span aria-hidden="true">↗</span>
+          </a>
+        </section>
       </article>
+
+      {/* Footer navigation */}
+      <div className="border-t border-line pt-8">
+        <Link
+          href="/#projects"
+          className="text-sm font-semibold text-teal-400 transition hover:underline"
+        >
+          ← Explore More Projects
+        </Link>
+      </div>
+
     </main>
   );
 }
